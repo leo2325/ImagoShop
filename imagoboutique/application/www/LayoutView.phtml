@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ImagoShop</title>
+
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize-3.0.3.min.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/all.min.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+    <!-- Feuille de style de l'application -->
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
+  
+    <!-- Librairie jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- JavaScript de l'application -->
+    <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+    <script src="<?= $wwwUrl ?>/js/classes/Basket.class.js"></script>
+</head>  
+<body>
+
+<!-- Navigateur commun à toutes les pages shop -->
+<nav class="nav-bar">
+        <a class="" href="<?= $requestUrl ?>">ACCEUIL</a>
+        <a class="" href="<?= $requestUrl ?>/products">TEE</a>
+   
+    <div id="userButton">
+        <a href="#"><i class="fas fa-user"></i></a>
+        
+        <div class="under-nav-list hide">
+            <?php if(array_key_exists('user', $_SESSION)) {?>
+                <a class="" href="<?= $requestUrl ?>/user/profil">Mon profil</a>
+                <?php if($_SESSION['user']['role'] == 'admin') {?>
+                <a class="" href="<?= $requestUrl ?>/admin">Admin</a>
+                <?php } ?>
+                <a class="" href="<?= $requestUrl ?>/user/logout">Déconnexion</a>
+            <?php } else {?>
+                <a class="" href="<?= $requestUrl ?>/user/login">Connexion</a>
+                <a class="" href="<?= $requestUrl ?>/user/register">S'enregistrer</a>
+            <?php } ?>
+        </div>
+    </div>
+
+    <div> 
+        <a href="<?= $requestUrl ?>/basket"><i class="fas fa-shopping-cart"></i></a>
+        <em class="hide" id="itemBasket"></em>
+    </div> 
+</nav>
+
+<header>
+    <h1>Imago<span>Shop</span></h1>
+</header>
+
+<main>
+    <!-- Affichage du template lié à la vue -->
+    <?php include $this->viewData['template']; ?>
+</main>
+
+<!-- Footer commun à toutes les pages shop -->
+<footer>
+    <h2><a href="../imagopictures/index.html">➔ Imago<span>Picturesⓒ</span></a></h2>
+</footer>
+
+<!-- Code principal JavaScript de l'application -->
+<script src="<?= $wwwUrl ?>/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,580 @@
+/* Fonts */
+@font-face {
+    font-family: "harvestital";
+    src: url(../fonts/harvestital.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Variable css */
+:root {
+    --border: 1px solid #4c4c4c;
+    --box-shadow: 3px 3px 2px #4c4c4c;
+    --couleur-police: #000000;
+    --couleur-bouton: #54ffa9;
+    --couleur-hover: #11798e;
+}
+
+/* ----   GENERAL   ----*/
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+	font-family: harvestital;
+    background-color: #F2F2F2;
+    font-size: 62.5%;
+}
+main{
+    text-align: center
+}
+
+.hide {
+	display: none;
+}
+
+/* Logo */
+h1{ 
+    margin: 5rem;
+    font-size: 4rem;
+    text-align: center;
+    line-height: 3.5rem;
+}
+h1 span{
+    font-size: 2.5rem;
+}
+
+/* Titre des pages sous le logo */
+h3 {
+    font-size: 2rem;
+    text-align: center;
+    color:  var(--couleur-hover); 
+}
+
+/* NAVIGATEUR (commun à toutes les pages shop) */
+.nav-bar {
+    width: 100%;
+    background-color: #F2F2F2;
+    padding-top: 1rem;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+}
+.nav-bar a, .nav-bar a.nav-icon, .nav-bar em {
+    text-decoration: none;
+    color: var(--couleur-police);
+    font-size:1.2rem;
+    padding: 0 1rem;
+}
+.nav-bar a:hover, .nav-bar a.nav-icon:hover {
+    color: var(--couleur-hover);
+    font-size:1.5rem;
+}
+.nav-bar .under-nav-list {
+    border-radius: 12px; 
+    background-color: #F2F2F2;
+    position: absolute;
+    top: 5rem;
+}
+.nav-bar em {
+      margin-left: -1rem; 
+}
+
+/*-----------    TEE    -----------*/
+        /* Liste des produits */
+main ul {
+    list-style: none;
+    padding: 0;
+}
+main li{
+    margin: 0;
+}
+.product-mosaic {
+    text-align: center;
+    padding: 2rem 0;
+}
+.product-mosaic a {
+    color: black;
+    text-decoration: none;
+}
+.product-mosaic h3 {
+    font-size: 1rem;
+}
+.product-mosaic:hover h3 {
+    color: var(--couleur-hover);
+    font-size: 1.5rem;
+}
+.product-mosaic img {
+    width: 100%;
+}
+
+/*---------    DETAILS TEE    -----------*/
+/* Bouton de retour à la liste */
+.comeBack{
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+    background-color: var(--couleur-bouton);
+    color: var(--couleur-police);
+    text-decoration: none;
+    font-size: 17px;
+    padding: 1rem;
+}
+.comeBack:hover {
+    background-color: var(--couleur-hover);
+}
+
+/* Fiche détails produit */ 
+.teeDetail {
+    text-align: center;
+    margin-top: 5rem;
+}
+.teeDetail img {
+    width: 100%;
+}
+.teeDetail h3 {
+    font-size: 1rem;
+}
+
+/* Formulaire selection des détails du produit */
+.paymentPart {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.paymentPart form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.paymentPart span {
+    font-size: 1.5rem;
+}
+.paymentPart form label {
+    width: 100%;
+    height: 2rem;
+    font-size: 1rem;
+}
+.paymentPart form select {
+    width: 20%;
+    margin-bottom: 1rem;
+    padding: 1%;
+}
+
+/*    Bouton de validation >produit dans le panier */
+.paymentPart form button {
+    width:25%;
+    height:2.5rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    border-radius: 8px;
+    background-color: var(--couleur-bouton);
+    color: var(--couleur-police);
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+.paymentPart form button:hover {
+    background-color: var(--couleur-hover); 
+}
+.paymentPart form button i {
+    font-size: 1.2rem;
+}
+
+    /*  Les POP UP (activés par 
+    la validation d'un produit) */
+.popUp {
+    width:70%;
+    border: var(--border);
+    border-radius: 12px;
+    background-color: white;
+    position: absolute;
+    top: 20rem;
+    left:15%;
+    z-index: 15;
+    text-align: center;
+    padding: 10px 20px;
+}
+/*Bouton Croix de fermeture de la fenetre close pop up*/
+.popUp .closePopUp {
+    width: 15%;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    background-color: var(--couleur-bouton);
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px 20px 0 91%;
+}
+/*Bouton de fermeture de la pop up*/
+.popUp button.closePopUp {
+    width: 80%;
+    height: 3rem;
+    border: var(--border);
+    border-radius: 12px; 
+    background-color: var(--couleur-bouton);
+    margin: 10px auto ;
+    font-size: 17px;
+}
+.popUp button.closePopUp:hover {
+    background-color: var(--couleur-hover);
+}
+
+/*------------     PANIER     ------------*/
+        /* Récapitulatif (+suppression) des produits */
+.basketTable {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #ffffff;    
+}
+.basketTable tr, .basketTable th, .basketTable td, .basketTable tfoot {
+    padding: 1rem auto;
+}
+.basketTable tfoot {
+    margin:20rem;
+} 
+.trash-tee {
+    border:none;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.trash-tee i{
+    color: #ff3939;
+    font-size: 1.2rem;
+}
+
+/*  Bouton d'accès au Formulaire de Paiement 
+            (& Bouton de PAIEMENT)  */
+.p-form button, .p-form input {
+    width: 10rem;
+    height: 3rem;
+    border: var(--border);
+    border-radius: 12px; 
+    box-shadow: var(--box-shadow);
+    background-color: var(--couleur-bouton);
+    margin: 2rem auto 5rem;  
+    font-size: 17px;
+}
+.p-form button:hover, .p-form input:hover{
+    background-color: var(--couleur-hover);
+}
+
+/*-----------   Paiement   ------------*/
+        /* Insertion des infos carte bancaire */
+#card-element{
+    width: 80%;
+    border: var(--border);
+    border-radius: 12px; 
+    background-color: #ffffff;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+/*--------   UTILISATEURS   --------*/
+/*--------     Profils      --------*/
+        /* Formulaire Profils */
+.b-form {
+    width:90%;
+    border: var(--border);
+    border-radius: 12px; 
+    text-align: center;
+    margin: 2rem auto;
+    padding: 1rem 2% 3rem;
+}
+.b-form textarea {
+    width: 87%;
+    min-height: 70px;
+    border: var(--border);
+    border-radius: 12px; 
+    margin: 10px auto 0;
+    padding-left: 3%;
+}
+.b-form label {
+    width: 87%;
+    margin: 10px auto 0;
+    text-align: left;
+}
+.b-form input {
+    width: 90%;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: 8px; 
+    padding-left: 3%;
+    margin: 1rem auto 0;
+}
+.b-form input[type="file"] {
+    height: 2.5rem;
+    border: none;
+    font-size: 15px;
+}
+.b-form input[type="submit"] {
+    width:50%;
+    background-color: var(--couleur-bouton);
+    font-size: 17px;
+    padding: 1rem;
+}
+.b-form input[type="submit"]:hover {
+    background-color: var(--couleur-hover);
+}
+
+        /*   tableaux des commandes   */ 
+.t-order {
+    width: 100%;
+    border: var(--border);
+    border-radius: 12px; 
+    text-align: center;
+    margin: 2rem auto;
+    padding: 1rem 2%;
+}
+.t-order thead{
+    width: 80%;
+    margin: 0 auto;
+}
+.t-order th {
+    font-size: 17px;
+    padding: 10px 2%;
+}
+.t-order td {
+    padding: 10px 2%;
+}
+.t-order .link {
+    padding: 0;
+}
+.t-order .link a {
+    width: 100%;
+    height: 100%;
+    color: var(--couleur-police);
+    text-decoration: none;
+    display: block;
+    padding: 10px 2%;
+}
+.t-order .link a:hover {
+    background-color: var(--couleur-hover);
+}
+.t-order tr {
+    border: var(--border);
+    margin: 0 auto;
+}
+
+/*----------        ADMIN        ----------*/
+main h4 {
+    font-size: 1.8rem;
+}
+
+/* Icones des actions de l'admin */
+main i {
+    font-size: 21px;
+}
+.tableTee .aTee .fas.fa-pen {
+    color: #11798e;
+}
+.tableTee .aTee .fas.fa-trash-alt, .userTable td .fas.fa-trash-alt {
+    color: #ff3939;
+}
+
+/* Bouton d'accès à l'ajout d'un produit Admin */
+.addTee {
+    border: var(--border);
+    border-radius: 8px; 
+    box-shadow: var(--box-shadow);
+    background-color: var(--couleur-bouton);
+    color: var(--couleur-police);
+    text-decoration: none;
+    font-size: 17px;
+    padding:1rem;   
+}
+.addTee:hover {
+    background-color: var(--couleur-hover);
+}
+
+/* Tableaux de gestion Admin */
+/* Tableau de gestion des produits Admin */
+.tableTee {
+    width: 100%;
+    border: var(--border);
+    padding: 15px 2%;
+    margin: 30px auto;
+    text-align: center;
+}
+.titleTee td {
+    font-size: 23px;
+}
+.tableTee tr {
+    border: var(--border);
+}
+.tableTee td {
+    padding: 10px 2%;
+}
+.tableTee .pTee {
+    width: 25%;
+}
+.tableTee .nTee {
+    width: 50%;
+    font-size: 18px;
+}
+.tableTee .aTee {
+    width: 27%;
+}
+.tableTee tr td img {
+    width: 100%;
+}
+
+/* Tableau de gestion des utilisateurs Admin */
+.userTable {
+    width: 100%;
+    border: var(--border);
+    padding: 15px 2%;
+    margin-top: 20px;
+    text-align: center;
+}
+.userTable tr {
+    border: var(--border);
+}
+.userTable td {
+    padding: 0 1%;
+    width: 19%;
+    height: 40px;
+}
+.userTable select {
+   height: 2rem;
+}
+
+/*--------      ADMINORDER      --------*/
+.customer-detail {
+    width: 25%;
+    border: var(--border);
+    font-size: 15px;
+    text-decoration: none;
+    
+    padding: 2%;
+    margin-top: 20px;
+}
+.customer-detail p {
+    width: 80%;
+    padding: 2%;
+    margin: auto;
+}
+
+/* FOOTER (commun à toutes les pages shop) */
+footer{
+    /*
+    width: 100%;
+    height: 3rem;
+    */
+    margin-top:20rem;
+    background-color: #F2F2F2;
+    position: sticky;
+    bottom: 0;
+    text-align: center;
+}
+h2 span{
+    font-size: 1rem;
+}
+footer a{ 
+    font-size: 2rem;
+    text-decoration: none;
+    color: var(--couleur-police); 
+    /*
+    line-height:2rem; 
+    padding-top:1rem;
+    */  
+} 
+footer a:hover{
+    color: var(--couleur-hover);
+    font-size:2.5rem;
+} 
+
+/*-----------RESPONSIVE-----------*/
+/*   Responsive tablette   */
+@media screen and (min-width:700px) {
+    body {
+        font-size: 85%;
+    }
+    /*display product*/
+    main ul {
+        display: grid;
+        grid-template-columns:repeat(2,5fr);    
+    }
+
+
+
+
+    .t-order {
+        font-size: 11px;
+    }
+    .t-order th {
+        font-size: 14px;
+    }
+
+    .customer-detail {
+        width: 50%;
+    }
+}
+
+/*   Responsive PC   */
+@media screen and (min-width:1000px) {
+    body { 
+        font-size: 100%;
+    }
+    /* ----- LOGO ----- */
+    h1{ 
+        margin: 10rem;
+        font-size: 8rem;
+        line-height: 3.5rem;
+    }
+    h1 span{
+        font-size: 5rem;
+    }
+    /*-----   TEE   -----*/
+    /*Liste des produits display */
+    main ul{
+        grid-template-columns: repeat(3,4fr);
+    }
+    .teeDetail img {
+        width: 60%;
+    }
+    .teeDetail h3 {
+        font-size: 2rem;
+    }
+    /* Formulaire selection des détails du produit */
+    .paymentPart form select {
+        width: 10%;
+    }
+    .paymentPart form button {
+        width: 10%;
+        height: 3rem;
+        margin: 2rem;
+    }
+    /*  Les POP UP (activés par la validation d'un produit) */
+    .popUp {
+        width:50%;
+        height: 30rem;
+        top: 50rem;
+        left: 25%;
+    }
+    .popUp .closePopUp {
+        width: 10%;
+        margin: 5px 20px 0 85%;
+    }
+    .popUp button.closePopUp {
+        height: 4rem;
+        margin: 5rem auto;  
+    }
+    /*  Bouton d'accès au Formulaire de Paiement 
+    & Bouton de paiement  */
+    .p-form button, .p-form input {
+        height: 4rem;
+    }
+    /*--------   PANIER & PAIEMENT & UTILISATEURS   --------*/
+    /* Récapitulatif (+suppression) des produits,
+    Insertion des infos carte bancaire,
+    formulaire Profils, tableaux des commandes,
+    tableau de gestion produits Admin & utilisateurs Admin
+      */
+    .basketTable, #card-element, .b-form, .t-order,
+    .tableTee, .userTable{
+        width:60%;
+        margin: 5rem auto;
+    }
+}

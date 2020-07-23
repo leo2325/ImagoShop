@@ -1,0 +1,9 @@
+<link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/style.css">
+
+<!-- 
+Message de notification de connexion page acceuil
+Code HTML à insérer lors de la connexion users 
+-->
+<?php if(array_key_exists('user', $_SESSION)) {?>
+    <h3>Bienvenue <?=$_SESSION['user']['firstname']?></span></h3>
+<?php }?>

@@ -1,0 +1,22 @@
+<link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/style.css">
+
+<h3>Paiement de votre commande</h3>
+
+<div class="container">
+	<form action="<?= $requestUrl?>/payment/charge" method="post" id="payment-form" class="p-form">
+		<input type="hidden" name="orders" id="orders">
+		<div class="form-row">
+			   
+			    <div id="card-element" class="form-control ">
+			      <!-- A Stripe Element will be inserted here. -->
+			    </div>
+
+			    <!-- Used to display form errors. -->
+			    <div id="card-errors" role="alert"></div>
+			  </div>
+
+			  <button>Payer</button>
+	</form>
+</div>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="<?=$wwwUrl?>/js/charge.js"></script>		

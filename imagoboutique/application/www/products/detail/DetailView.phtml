@@ -1,0 +1,56 @@
+<link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/style.css"> 
+
+<h3>Détails Tee</h3>
+
+<div id="errorPopUpQuantity" class="hide popUp">
+    <p id="closePopUpError" class="closePopUp">X<p>
+    <h4>Désolé</h4>
+    <p>Vous devez indiquer la quantité d'article(s) désiré(s) pour les ajouter à votre panier.</p>
+    <button class="closePopUp">Retour aux achats</button>
+</div>
+
+<div id="errorPopUpSize" class="hide popUp">
+    <p id="closePopUpError" class="closePopUp">X<p>
+    <h4>Désolé</h4>
+    <p>Vous devez indiquer la taille d'article(s) désiré(s) pour les ajouter à votre panier. </p>
+    <button class="closePopUp">Retour aux achats</button>
+</div>
+
+<div id="productPopUp" class="hide popUp">
+    <p id="closePopUpProduct" class="closePopUp">X<p>
+    <h4>Félicitations</h4>
+    <p>Vous avez ajouté <em id="teeNumber"></em> article(s) à votre panier</p>
+    <button class="closePopUp">Retour aux achats</button>
+</div>
+
+<a class="comeBack" href="<?= $requestUrl ?>/products"><i class="fas fa-arrow-circle-left"></i>Retour liste</a>
+<div class="teeDetail">
+    <img src="<?= $wwwUrl?>/images/tee/<?=$tee['Photo']?>">
+    <h3><?=$tee['Name']?></h3> 
+    <p><?=$tee['Description']?></p>
+    <div class="paymentPart">
+        <span>Prix: <em><?=number_format($tee['SalePrice'], 2)?> €</em></span>
+        <form>
+            <label for="tee-<?=$tee['Id']?>">Quantité:</label>
+            <select type="text" name="quantity" id="tee-<?=$tee['Id']?>">
+                <option value=""></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <label for="size">Taille:</label>
+            <select type="text" name="size" id="size">
+                <option value=""></option>
+                <option value="s">Small</option>
+                <option value="m">Medium</option>
+                <option value="l">Large</option>
+                <option value="xl">XLarge</option>
+            </select>
+
+            <button class="addToBasket" data-name="<?=$tee['Name']?>" data-price="<?=$tee['SalePrice']?>" data-id="<?=$tee['Id']?>"><i class="fas fa-plus-circle"></i>Add</p>
+        </form>
+    </div>
+    

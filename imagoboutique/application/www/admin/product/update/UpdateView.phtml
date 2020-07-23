@@ -1,0 +1,30 @@
+<?php if(empty($tee)== false)  { ?>
+
+<h3>Modifiez votre produit</h3>
+
+<a class="comeBack" href="<?= $requestUrl ?>/admin"><i class="fas fa-arrow-circle-left"></i>Retour vers l'admin</a>
+	
+	<form class="b-form" action="<?= $requestUrl ?>/admin/product/update" method="POST" enctype="multipart/form-data">
+		<input type="text" name="name" placeholder="Nom du produit" value="<?=$tee['Name']?>">
+		
+		<img src="<?= $wwwUrl ?>/images/tee/<?=$tee['Photo']?>">
+		<input type="file" name="tee_pict" id="tee_pict">
+		
+		<textarea type="text" name="description" ><?=$tee['Description']?>
+		</textarea>
+		
+		<label>Quantité</label>
+		<input type="text" name="quantity" placeholder="Quantité"  value="<?=$tee['QuantityInStock']?>">
+		
+		<label>Prix d'achat (€)</label>
+		<input type="text" name="buyPrice" placeholder="Prix de d'achat"  value="<?=number_format($tee['BuyPrice'],2)?>">
+		
+		<label>Prix de vente (€)</label>
+		<input type="text" name="salePrice" placeholder="Prix de vente"  value="<?=number_format($tee['SalePrice'], 2)?>">
+		
+		<input type="hidden" name="teeId" value="<?=$_GET['id']?>">
+		
+		<input type="submit" name="Enregister">
+	</form>
+
+<?php } ?>

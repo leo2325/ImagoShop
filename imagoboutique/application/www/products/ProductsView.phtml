@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/style.css">
+
+<h3>Liste Tee</h3>
+
+<ul>
+    <?php foreach($tee as $tee) {?>
+        <li class="product-mosaic">
+            <a href="<?= $requestUrl ?>/products/detail?productId=<?=$tee['Id']?>">
+                <div>
+                    <img src="<?= $wwwUrl?>/images/tee/<?=$tee['Photo']?>">
+                    <h3><?=$tee['Name']?></h3>
+                    <p><?=substr($tee['SalePrice'], 0, 60)?>.00€</p>
+                </div>
+            </a>
+           
+        </li>
+    <?php }?>
+</ul>
